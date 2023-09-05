@@ -11,10 +11,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <UserIcon
-                className="-mr-1 h-8 w-8 text-gray-400"
-                aria-hidden="true"
-              />
+              <Link href="/">
+                <UserIcon
+                  className="-mr-1 h-8 w-8 text-gray-400"
+                  aria-hidden="true"
+                />
+              </Link>
             </div>
             <p className="text-lg font-bold text-white ml-4">Sales Tracker</p>
             <div className="ml-5 flex space-x-4">
