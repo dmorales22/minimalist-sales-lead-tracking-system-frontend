@@ -77,15 +77,15 @@ const LeadEntryComponent = (props: any) => {
           <p>{props.lead?.email}</p>
           <div>
             {props.lead?.status === "prospect" ? (
-              <span className="bg-blue-100 text-white text-md font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-white">
+              <span className="bg-blue-900 text-white text-md font-medium mr-2 px-2.5 py-0.5 rounded-full">
                 Prospect
               </span>
             ) : props?.lead?.status === "active" ? (
-              <span className="bg-green-100 text-white text-md font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-white">
+              <span className="bg-green-900 text-white text-md font-medium mr-2 px-2.5 py-0.5 rounded-full">
                 Active
               </span>
             ) : props.lead?.status === "unqualified" ? (
-              <span className="bg-red-100 text-white text-md font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-white">
+              <span className="bg-red-900 text-white text-md font-medium mr-2 px-2.5 py-0.5 rounded-full">
                 Unqualified
               </span>
             ) : (
