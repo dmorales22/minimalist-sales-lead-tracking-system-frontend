@@ -1,4 +1,10 @@
 import React from "react";
+
+/**
+ * This component is an animated spinner.
+ * @param {any} props
+ * @constructor
+ */
 const Spinner = (props: any) => {
   return (
     <div

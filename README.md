@@ -1,8 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Minimist Sales Tracker Frontend
 
-## Getting Started
+This is the frontend for a simple sales lead tracker. A user can create, edit, view, and delete sales leads with appropriate feedback and input validation. This is built with Next.js using Axios request library to query the backend. This project is structured using the MVC (Model, Viewer, Controller) design pattern with this frontend implementing the Viewer aspect.
 
-First, run the development server:
+## Install
+
+To install and run the frontend on a server, make sure you have these prerequisite programs installed onto your server.
+
+- node 14 and above
+- npm
+- Git
+
+Lookup any guides out there to install this software relating to your OS and development environment.
+
+### Download Project
+
+You can download this project by using the git clone command. Make sure you have proper authorization to use to this Git repository as it may ask for a username and password (or token).
+
+`git clone https://github.com/dmorales22/minimalist-sales-lead-tracking-system-frontend`
+
+### Quick Start
+
+Once the project is downloaded. Go to the directory of the project in your command line and run this command to install dependencies:
+
+`npm install`
+
+Then start up in development mode with these command(s):
 
 ```bash
 npm run dev
@@ -12,23 +34,34 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To build for production use this command: 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`npm run build`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+If there are any errors, make sure you have the prerequisite software and any dependencies installed first.
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+To run this project, you will need to add the following environment variables to your .env file
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+NOTE: Next.js uses .env.local in root of the project.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`NEXT_PUBLIC_BASEURL` The base URL that the frontend will call to retrieve data from the backend.
 
-## Deploy on Vercel
+Ex: http://localhost:5000
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributors
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Here are the list of people have contributed to this repo:
+
+- David Morales (dmoral1414@gmail.com)
+
+## Copyright
+
+© 2023 David Morales
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

@@ -1,17 +1,18 @@
 "use client";
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { lazy, Suspense } from "react";
 import Link from "next/link";
-const Navbar = lazy(() => import("../../components/Navbar"));
+import Navbar from "../../components/Navbar";
 const LeadFormComponent = lazy(
   () => import("../../components/LeadFormComponent"),
 );
 
+/**
+ * This page contains the form to create a new Lead.
+ */
 export default function CreateLeadPage() {
   return (
     <div>
-      <Suspense fallback={<></>}>
-        <Navbar />
-      </Suspense>
+      <Navbar />
       <div className="mx-4">
         <Link href={"/"}>
           <button
@@ -21,7 +22,7 @@ export default function CreateLeadPage() {
             {"<- Back"}
           </button>
         </Link>
-        <h2 className={"my-2 font-bold"}>Create New Lead</h2>
+        <h2 className={"my-2 text-xl font-bold"}>Create New Lead</h2>
         <Suspense fallback={<></>}>
           <LeadFormComponent />
         </Suspense>

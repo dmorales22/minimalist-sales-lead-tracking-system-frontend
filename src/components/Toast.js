@@ -1,4 +1,8 @@
 import React from "react";
+
+/**
+ * This component is a toast notification to display messages from the system.
+ */
 const Toast = ({ message, status, onClose }) => {
   return (
     <div className="fixed bottom-5 right-5 z-50 max-w-sm w-[280px] bg-white shadow-lg rounded-lg pointer-events-auto">

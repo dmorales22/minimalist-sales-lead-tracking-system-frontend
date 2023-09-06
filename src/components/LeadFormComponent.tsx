@@ -5,6 +5,10 @@ import Spinner from "./Spinner";
 import axios from "axios";
 const baseUrl = process.env.NEXT_PUBLIC_BASEURL;
 
+/**
+ * This component is a form to create a new lead.
+ * @constructor
+ */
 export default function LeadFormComponent() {
   const [inputs, setInputs] = useState({
     name: "",
@@ -56,7 +60,7 @@ export default function LeadFormComponent() {
 
       handleShowToast(response.data, "success");
       setIsLoading(false);
-      window.location.replace("/");
+      window.location.replace("/"); //Redirects to main page
     } catch (err: any) {
       console.error(err);
       const error_msg = err?.response?.data || "There was an error :(";
@@ -65,6 +69,7 @@ export default function LeadFormComponent() {
     }
   }
 
+  // @ts-ignore
   return (
     <div className="p-4 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
       <form onSubmit={handleLeadFormSubmit}>
@@ -117,7 +122,7 @@ export default function LeadFormComponent() {
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="name"
         >
-          Commission Amount (USD)*
+          Sales Amount (USD)*
         </label>
         <input
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

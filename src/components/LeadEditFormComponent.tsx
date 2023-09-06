@@ -5,6 +5,11 @@ import Spinner from "./Spinner";
 import axios from "axios";
 const baseUrl = process.env.NEXT_PUBLIC_BASEURL;
 
+/**
+ * This component is an edit form a lead.
+ * @param {any} props
+ * @constructor
+ */
 export default function LeadEditFormComponent(props: any) {
   const id = props.id;
   const [inputs, setInputs] = useState({

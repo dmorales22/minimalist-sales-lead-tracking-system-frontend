@@ -4,6 +4,11 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, UserIcon } from "@heroicons/react/20/solid";
+
+/**
+ * This component is sticky navbar used for page navigation.
+ * @constructor
+ */
 const Navbar = () => {
   return (
     <nav className="bg-gray-800 sticky top-0 z-50">

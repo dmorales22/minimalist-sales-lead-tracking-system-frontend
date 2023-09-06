@@ -1,6 +1,6 @@
 "use client";
 import React, { lazy, Suspense, useEffect, useState } from "react";
-const Navbar = lazy(() => import("../components/Navbar"));
+import Navbar from "../components/Navbar";
 const LeadEntryComponent = lazy(
   () => import("../components/LeadEntryComponent"),
 );
@@ -10,6 +10,9 @@ import axios from "axios";
 import Link from "next/link";
 const baseUrl = process.env.NEXT_PUBLIC_BASEURL;
 
+/**
+ * This page is the main landing page that contains the dashboard to view leads.
+ */
 export default function Home() {
   const [leads, setLeads] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -54,9 +57,7 @@ export default function Home() {
 
   return (
     <div>
-      <Suspense fallback={<></>}>
-        <Navbar />
-      </Suspense>
+      <Navbar />
       <div className="p-4">
         <Link href={"/create-lead"}>
           <button

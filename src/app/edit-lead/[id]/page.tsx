@@ -1,17 +1,20 @@
 "use client";
 import React, { lazy, Suspense } from "react";
 import Link from "next/link";
+import Navbar from "../../../components/Navbar";
 const LeadEditFormComponent = lazy(
   () => import("@/components/LeadEditFormComponent"),
 );
-const Navbar = lazy(() => import("../../../components/Navbar"));
 
+/**
+ * This page contains the edit form for the lead.
+ * This page also uses a dynamic route to query a specific lead.
+ * @param params
+ */
 export default function EditLeadPage({ params }: { params: { id: string } }) {
   return (
     <div>
-      <Suspense fallback={<></>}>
-        <Navbar />
-      </Suspense>
+      <Navbar />
       <div className="mx-4">
         <Link href={"/"}>
           <button
@@ -21,7 +24,7 @@ export default function EditLeadPage({ params }: { params: { id: string } }) {
             {"<- Back"}
           </button>
         </Link>
-        <h2 className={"my-2 font-bold"}>Edit Lead</h2>
+        <h2 className={"my-2 text-xl font-bold"}>Edit Lead</h2>
         <Suspense fallback={<></>}>
           <LeadEditFormComponent id={params.id} />
         </Suspense>
