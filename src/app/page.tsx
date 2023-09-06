@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 const LeadEntryComponent = lazy(
   () => import("../components/LeadEntryComponent"),
 );
+const LeadPaginationBar = lazy(() => import("../components/LeadPaginationBar"));
 import Toast from "@/components/Toast";
 import Spinner from "@/components/Spinner";
 import axios from "axios";
@@ -14,6 +15,10 @@ const baseUrl = process.env.NEXT_PUBLIC_BASEURL;
  * This page is the main landing page that contains the dashboard to view leads.
  */
 export default function Home() {
+  const [queryCount, setQueryCount] = useState(0);
+  const [chunkIndex, setChunkIndex] = useState(0);
+  const [limit, setLimit] = useState(10);
+  const [sort, setSort] = useState("0");
   const [leads, setLeads] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [showToast, setShowToast] = useState(false);
@@ -38,12 +43,19 @@ export default function Home() {
       setIsLoading(true);
       try {
         const response = await axios.get(
-          //Sends POST request to the server
-          baseUrl + "/dashboard/v1/lead",
+          //Sends GET request to the server
+          baseUrl +
+            "/dashboard/v1/lead/page/" +
+            limit +
+            "/" +
+            chunkIndex +
+            "/" +
+            sort,
           { withCredentials: true },
         );
 
-        setLeads(response.data);
+        setQueryCount(response.data.count);
+        setLeads(response.data.data);
         setIsLoading(false);
       } catch (err: any) {
         setIsLoading(false);
@@ -53,7 +65,7 @@ export default function Home() {
       }
     }
     getLeads();
-  }, []);
+  }, [chunkIndex, limit, sort]);
 
   return (
     <div>
@@ -62,11 +74,20 @@ export default function Home() {
         <Link href={"/create-lead"}>
           <button
             type="button"
-            className="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2"
+            className="text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-4"
           >
             + Add Lead
           </button>
         </Link>
+        <LeadPaginationBar
+          queryCount={queryCount}
+          chunkIndex={chunkIndex}
+          setChunkIndex={setChunkIndex}
+          limit={limit}
+          setLimit={setLimit}
+          sort={sort}
+          setSort={setSort}
+        />
         {isLoading ? (
           <div>
             <Spinner message={"Loading"} />
@@ -88,6 +109,13 @@ export default function Home() {
             onClose={() => setShowToast(false)}
           />
         )}
+        <LeadPaginationBar
+          queryCount={queryCount}
+          chunkIndex={chunkIndex}
+          setChunkIndex={setChunkIndex}
+          limit={limit}
+          setLimit={setLimit}
+        />
       </div>
     </div>
   );
