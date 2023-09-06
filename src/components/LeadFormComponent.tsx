@@ -90,7 +90,7 @@ export default function LeadFormComponent() {
         />
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
-          htmlFor="name"
+          htmlFor="email"
         >
           Email*
         </label>
@@ -104,7 +104,7 @@ export default function LeadFormComponent() {
         />
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
-          htmlFor="name"
+          htmlFor="status"
         >
           Status*
         </label>
@@ -120,7 +120,7 @@ export default function LeadFormComponent() {
         </select>
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
-          htmlFor="name"
+          htmlFor="estimatedSaleAmount"
         >
           Sales Amount (USD)*
         </label>
