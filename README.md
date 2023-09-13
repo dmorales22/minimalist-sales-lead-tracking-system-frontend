@@ -1,4 +1,5 @@
 # Minimalist Sales Lead Tracker Frontend
+NOTE: This was made for a coding assessment that was never even viewed by the company I was applying for :( but this can be used a template for a simple dashboard. 
 
 This is the frontend for a simple sales lead tracker. A user can create, edit, view, and delete sales leads with appropriate feedback and input validation. This is built with Next.js using Axios request library to query the backend. This project is structured using the MVC (Model, Viewer, Controller) design pattern with this frontend implementing the Viewer aspect.
 
